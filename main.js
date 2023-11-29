@@ -1,8 +1,7 @@
 // main.js
 
-import { AudioProcessor } from './AudioProcessor.js';
-import { Visualizer } from './Visualizer.js';
-
+import { AudioProcessor } from './audioProcessor.js';
+import { Visualizer } from './visualizer.js';
 
 // オーディオプロセッサーとビジュアライザーのインスタンスを作成
 const audioProcessor = new AudioProcessor();
@@ -16,4 +15,13 @@ audioProcessor.onAudioData((audioData) => {
 // ユーザーがページを訪れたときに、オーディオの再生を開始
 window.addEventListener('load', () => {
     audioProcessor.start();
+});
+
+// 再生ボタンと一時停止ボタンの要素を取得
+const playButton = document.getElementById('play');
+const pauseButton = document.getElementById('pause');
+
+playButton.addEventListener('click', function() {
+    // 音声コンテキストを再開
+    audioProcessor.audioContext.resume();
 });
