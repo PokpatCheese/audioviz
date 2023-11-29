@@ -2,7 +2,7 @@
 
 class AudioProcessor {
     constructor() {
-        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        this.audioContext = new (window.AudioContext || webkitAudioContext.AudioContext)();
         this.analyser = this.audioContext.createAnalyser();
         this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
         this.audioDataCallback = null;
@@ -15,8 +15,11 @@ class AudioProcessor {
     start() {
         navigator.mediaDevices.getUserMedia({ audio: true, video: false })
             .then((stream) => {
+                // オーディオ入力のストリームを作成
                 this.source = this.audioContext.createMediaStreamSource(stream);
+
                 this.source.connect(this.analyser);
+
                 this.update();
             })
             .catch((err) => {
@@ -35,4 +38,4 @@ class AudioProcessor {
     }
 }
 
-module.export = AudioProcessor;
+export { AudioProcessor };

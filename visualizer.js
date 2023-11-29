@@ -36,4 +36,4 @@ class Visualizer {
     }
 }
 
-export default Visualizer;
+export { Visualizer };
