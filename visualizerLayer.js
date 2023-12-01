@@ -1,6 +1,6 @@
-// visualLayer.js
+// visualizerLayer.js
 
-class VisualLayer {
+class VisualizerLayer {
     constructor(canvas, strokeStyle, offset_x, offset_y) {
         this.canvas = canvas;
         this.canvasContext = this.canvas.getContext('2d');
@@ -37,4 +37,4 @@ class VisualLayer {
     }
 }
 
-export { VisualLayer };
+export { VisualizerLayer };

@@ -1,6 +1,6 @@
 // visualizer.js
 
-import { VisualLayer } from "./visualLayer.js";
+import { VisualizerLayer } from "./visualizerLayer.js";
 
 class Visualizer {
 
@@ -28,7 +28,7 @@ class Visualizer {
         var color = myRandomColor;
         var offset_x = 0;
         var offset_y = 0;
-        this.layers.push(new VisualLayer(this.canvas, color, offset_x, offset_y));
+        this.layers.push(new VisualizerLayer(this.canvas, color, offset_x, offset_y));
     }
 }
 
