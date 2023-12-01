@@ -13,13 +13,16 @@ window.addEventListener('load', () => {
 });
 
 // ユーザーがオーディオを再生したときに、オーディオデータをビジュアライザーに送信
-audioProcessor.onAudioData((audioData) => {
+audioProcessor.onAudioData(audioData => {
     visualizer.draw(audioData);
 });
 
-// 再生ボタンの要素を取得
+// 再生ボタンをクリックしたとき
 const playButton = document.getElementById('play');
-playButton.addEventListener('click', function() {
+playButton.onclick = function () {
     // 音声コンテキストを再開
     audioProcessor.audioContext.resume();
-});
+
+    // レイヤーを新規追加
+    visualizer.addLayer();
+};
